@@ -10,6 +10,8 @@ eval "$(docker-machine env default)"
 
 mvn clean package docker:build
 
+docker login
+
 docker push jaimegag/spring-docker
 
 ./push.sh
