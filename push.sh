@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cf docker-push docker-app saurabhguptasg/spring-docker -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar" --no-start
+cf push docker-app -o jaimegag/spring-docker -c "java -Djava.security.egd=file:/dev/./urandom -jar /app.jar" --no-start
 
-cf enable-diego docker-app
+cf enable-feature-flag diego_docker
 
 cf set-health-check docker-app none
 

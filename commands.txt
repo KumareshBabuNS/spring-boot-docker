@@ -1,4 +1,4 @@
-cf cups mylogger -l syslog://logs3.papertrailapp.com:51203
+cf cups mylogger -l syslog://logs3.papertrailapp.com:47020
 
 cf login -a https://api.corpdemo.fe.pivotal.io --skip-ssl-validation
 
@@ -9,6 +9,8 @@ docker-machine start default
 eval "$(docker-machine env default)"
 
 mvn clean package docker:build
+
+docker push jaimegag/spring-docker
 
 ./push.sh
 
